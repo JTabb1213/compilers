@@ -1,0 +1,57 @@
+#include "token.h"
+#include <iostream>
+#include <unordered_map>
+
+std::unordered_map<int, std::string> tokenNames = {
+    {TOKEN_NULL, "TOKEN_NULL"},
+    {TOKEN_EOF, "TOKEN_EOF"},
+    {TOKEN_PLUS, "TOKEN_PLUS"},
+    {TOKEN_MINUS, "TOKEN_MINUS"},
+    {TOKEN_MULT, "TOKEN_MULT"},
+    {TOKEN_DIV, "TOKEN_DIV"},
+    {TOKEN_EXP, "TOKEN_EXP"},
+    {TOKEN_LESS, "TOKEN_LESS"},
+    {TOKEN_LESS_EQ, "TOKEN_LESS_EQ"},
+    {TOKEN_GREATER, "TOKEN_GREATER"},
+    {TOKEN_GREATER_EQ, "TOKEN_GREATER_EQ"},
+    {TOKEN_EQUAL, "TOKEN_EQUAL"},
+    {TOKEN_NOT_EQUAL, "TOKEN_NOT_EQUAL"},
+    {TOKEN_ASSIGN, "TOKEN_ASSIGN"},
+    {TOKEN_NOT, "TOKEN_NOT"},
+    {TOKEN_LPAREN, "TOKEN_LPAREN"},
+    {TOKEN_RPAREN, "TOKEN_RPAREN"},
+    {TOKEN_LBRACE, "TOKEN_LBRACE"},
+    {TOKEN_RBRACE, "TOKEN_RBRACE"},
+    {TOKEN_LBRACKET, "TOKEN_LBRACKET"},
+    {TOKEN_RBRACKET, "TOKEN_RBRACKET"},
+    {TOKEN_AND, "TOKEN_AND"},
+    {TOKEN_OR, "TOKEN_OR"},
+    {TOKEN_DOT, "TOKEN_DOT"},
+    {TOKEN_AT, "TOKEN_AT"},
+    {TOKEN_COLON, "TOKEN_COLON"},
+    {TOKEN_SEMICOLON, "TOKEN_SEMICOLON"},
+    {TOKEN_COMMA, "TOKEN_COMMA"},
+    {TOKEN_INTEGER, "TOKEN_INTEGER"},
+    {TOKEN_REAL, "TOKEN_REAL"},
+    {TOKEN_STRING, "TOKEN_STRING"},
+    {TOKEN_IDENT, "TOKEN_IDENT"},
+    {TOKEN_COMMENT, "TOKEN_COMMENT"},
+    {TOKEN_ERROR, "TOKEN_ERROR"},
+    {TOKEN_BITWISE_NOT, "TOKEN_BITWISE_NOT"},
+    {TOKEN_BITWISE_OR, "TOKEN_BITWISE_OR"},
+    {TOKEN_BITWISE_AND, "TOKEN_BITWISE_AND"},
+    {TOKEN_UNKNOWN, "TOKEN_UNKNOWN"},
+    {TOKEN_POUND, "TOKEN_POUND"},
+    {TOKEN_SHIFT, "TOKEN_SHIFT"},
+    {TOKEN_LINECOMMENT, "TOKEN_LINECOMMENT"},
+    {TOKEN_WHITESPACE, "TOKEN_WHITESPACE"},
+    {TOKEN_NEWLINE, "TOKEN_NEWLINE"},
+    {TOKEN_IDENT, "TOKEN_IDENT"}};
+
+void print_token(const Token &t)
+{
+    if (t.id != TOKEN_WHITESPACE && t.id != TOKEN_NEWLINE && t.id != TOKEN_COMMENT && t.id != TOKEN_BLOCKCOMMENT)
+    {
+        std::cout << tokenNames[t.id] << ": " << t.value << " at " << t.line << ":" << t.column << std::endl;
+    }
+}
